@@ -1,38 +1,37 @@
 
 package com.clinicaodontologica.mx.logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-public class Paciente extends Persona {
+@Entity
+public class Paciente extends Persona implements Serializable {
     
-    private int id_paciente;
+    //private int id_paciente;
     private boolean tiene_SS; // Seguro social
     private String tipoSangre;
+    
+    @OneToOne
     private Responsable responsable;
-    private List<Turno> listaTurnos;
+    @OneToMany(mappedBy = "pctTurno")
+   private List<Turno> listaTurnos;
 
     public Paciente() {
     }
 
-    public Paciente(int id_paciente, boolean tiene_SS, String tipoSangre, Responsable responsable, List<Turno> listaTurnos,
-            String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
-        super(dni, nombre, apellido, telefono, direccion, fecha_nac);
-        this.id_paciente = id_paciente;
+    public Paciente(boolean tiene_SS, String tipoSangre, Responsable responsable, List<Turno> listaTurnos,
+            int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+        super(id, dni, nombre, apellido, telefono, direccion, fecha_nac);
         this.tiene_SS = tiene_SS;
         this.tipoSangre = tipoSangre;
         this.responsable = responsable;
         this.listaTurnos = listaTurnos;
     }
-
-    public int getId_paciente() {
-        return id_paciente;
-    }
-
-    public void setId_paciente(int id_paciente) {
-        this.id_paciente = id_paciente;
-    }
-
+    
     public boolean isTiene_SS() {
         return tiene_SS;
     }

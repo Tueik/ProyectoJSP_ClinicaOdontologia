@@ -1,36 +1,39 @@
 
 package com.clinicaodontologica.mx.logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-public class Odontologo extends Persona {
+@Entity
+public class Odontologo extends Persona implements Serializable {
     
-    private int id_odontologo;
+    //private int id_odontologo;
     private String especialidad;
+    
+    @OneToMany(mappedBy = "odtlTurno")
     private List<Turno> listaTurnos;
+    @OneToOne
     private Usuario usuario;
+    @OneToOne
     private Horario horario;
 
     public Odontologo() {
     }
 
-    public Odontologo(int id_odontologo, String especialidad, List<Turno> listaTurnos, Usuario usuario, Horario horario, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
-        super(dni, nombre, apellido, telefono, direccion, fecha_nac);
-        this.id_odontologo = id_odontologo;
+    public Odontologo(String especialidad, List<Turno> listaTurnos, Usuario usuario, Horario horario,
+            int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+        super(id, dni, nombre, apellido, telefono, direccion, fecha_nac);
         this.especialidad = especialidad;
         this.listaTurnos = listaTurnos;
         this.usuario = usuario;
         this.horario = horario;
     }
-
-    public int getId_odontologo() {
-        return id_odontologo;
-    }
-
-    public void setId_odontologo(int id_odontologo) {
-        this.id_odontologo = id_odontologo;
-    }
+    
+    
 
     public String getEspecialidad() {
         return especialidad;
