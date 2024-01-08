@@ -4,8 +4,8 @@
  */
 package com.clinicaodontologica.mx.servlets;
 
+import com.clinicaodontologica.mx.logica.ControladoraLogica;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "SvUsuarios", urlPatterns = {"/SvUsuarios"})
 public class SvUsuarios extends HttpServlet {
+    
+    ControladoraLogica control = new ControladoraLogica();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -35,7 +37,15 @@ public class SvUsuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        String nombreUsuario = request.getParameter("nombreusuario");
+        String contrasena = request.getParameter("contrasena");
+        String rol = request.getParameter("rol");
+        
+        control.crearUsuario(nombreUsuario, contrasena, rol);
+        
+        response.sendRedirect("index.jsp");
+        
     }
 
     
