@@ -17,8 +17,9 @@ public class Paciente extends Persona implements Serializable {
     
     @OneToOne
     private Responsable responsable;
-    @OneToMany(mappedBy = "pctTurno")
-   private List<Turno> listaTurnos;
+    
+    @OneToMany(mappedBy = "turno_paciente")
+    private List<Turno> listaTurnos;
 
     public Paciente() {
     }

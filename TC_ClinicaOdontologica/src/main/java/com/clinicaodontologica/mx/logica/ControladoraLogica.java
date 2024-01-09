@@ -12,4 +12,14 @@ import com.clinicaodontologica.mx.persistencia.ControladoraPersistencia;
  */
 public class ControladoraLogica {
     ControladoraPersistencia controlPersis = new ControladoraPersistencia();
+    
+    public void crearUsuario(String nombreUsuario, String contrasena, String rol){
+        
+        Usuario nuevoUsuario = new Usuario();
+        nuevoUsuario.setNombreUsuario(nombreUsuario);
+        nuevoUsuario.setContrasena(contrasena);
+        nuevoUsuario.setRol(rol);
+        
+        controlPersis.crearUsuario(nuevoUsuario);
+    }
 }

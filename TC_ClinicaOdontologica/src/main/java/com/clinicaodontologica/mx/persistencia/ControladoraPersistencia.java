@@ -4,6 +4,8 @@
  */
 package com.clinicaodontologica.mx.persistencia;
 
+import com.clinicaodontologica.mx.logica.Usuario;
+
 /**
  *
  * @author ricar
@@ -17,4 +19,11 @@ public class ControladoraPersistencia {
     SecretarioJpaController secretarioJPA = new SecretarioJpaController();
     TurnoJpaController turnoJPA = new TurnoJpaController();
     UsuarioJpaController usuarioJPA = new UsuarioJpaController();
+
+    
+    
+    public void crearUsuario(Usuario nuevoUsuario) {
+        usuarioJPA.create(nuevoUsuario);
+    }
+    
 }

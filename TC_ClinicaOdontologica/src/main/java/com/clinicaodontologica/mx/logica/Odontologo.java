@@ -14,10 +14,12 @@ public class Odontologo extends Persona implements Serializable {
     //private int id_odontologo;
     private String especialidad;
     
-    @OneToMany(mappedBy = "odtlTurno")
+    @OneToMany(mappedBy = "turno_odontologo")
     private List<Turno> listaTurnos;
+    
     @OneToOne
     private Usuario usuario;
+    
     @OneToOne
     private Horario horario;
 
