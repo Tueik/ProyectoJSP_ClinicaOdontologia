@@ -5,6 +5,7 @@
 package com.clinicaodontologica.mx.persistencia;
 
 import com.clinicaodontologica.mx.logica.Usuario;
+import java.util.List;
 
 /**
  *
@@ -24,6 +25,10 @@ public class ControladoraPersistencia {
     
     public void crearUsuario(Usuario nuevoUsuario) {
         usuarioJPA.create(nuevoUsuario);
+    }
+
+    public List<Usuario> obtenerUsuarios() {
+        return usuarioJPA.findUsuarioEntities();
     }
     
 }

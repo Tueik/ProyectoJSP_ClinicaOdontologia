@@ -5,6 +5,7 @@
 package com.clinicaodontologica.mx.logica;
 
 import com.clinicaodontologica.mx.persistencia.ControladoraPersistencia;
+import java.util.List;
 
 /**
  *
@@ -21,5 +22,9 @@ public class ControladoraLogica {
         nuevoUsuario.setRol(rol);
         
         controlPersis.crearUsuario(nuevoUsuario);
+    }
+
+    public List<Usuario> obtenerUsuarios() {
+        return controlPersis.obtenerUsuarios();
     }
 }
