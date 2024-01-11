@@ -43,14 +43,16 @@
                                             <tr>
                                                 <th>Id</th>
                                                 <th>Nombre de Usuario</th>
-                                                <th>Rol</th>                                               
+                                                <th>Rol</th>  
+                                                <th style="width: 210px">Acción</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
                                                 <th>Id</th>
                                                 <th>Nombre de Usuario</th>
-                                                <th>Rol</th>                                             
+                                                <th>Rol</th> 
+                                                <th style="width: 210px">Acción</th> 
                                             </tr>
                                         </tfoot>
                                         <% 
@@ -59,11 +61,26 @@
                                         <tbody>
                                             <% for(Usuario usr : listaUsuarios) { %>
                                             <tr>                                               
-                                                <td><%= usr.getId_usuario() %></td>
+                                                <td id="id_usr<%= usr.getId_usuario() %>"><%= usr.getId_usuario() %></td>
                                                 <td><%= usr.getNombreUsuario() %></td>
                                                 <td><%= usr.getRol() %></td>
+                                                <td style="display: flex; width: 230px;">
+                                                    <form action="SvEliminarUsuarios" name="eliminar" method="POST"><!-- Se manda el código al servlet -->
+                                                        <button type="submit" class="btn btn-primary btn-user btn-block" style="background-color: red; margin-right: 5px;">
+                                                            <i class="fas fa-trash-alt"></i> Eliminar
+                                                        </button>
+                                                        <input type="hidden" name="id" value="<%= usr.getId_usuario() %>">
+                                                    </form>
+                                                    <form action="SvEditarUsuarioUsuarios" name="editar" method="POST"><!-- Se manda el código al servlet -->
+                                                        <button type="submit" class="btn btn-primary btn-user btn-block" style="margin-left: 5px;">
+                                                            <i class="fas fa-pencil-alt"></i> Editar
+                                                        </button>
+                                                        <input type="hidden" name="id" value="<%= usr.getId_usuario() %>">
+                                                    </form>                                    
+                                                </td>
                                             </tr>
                                             <% } %>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
