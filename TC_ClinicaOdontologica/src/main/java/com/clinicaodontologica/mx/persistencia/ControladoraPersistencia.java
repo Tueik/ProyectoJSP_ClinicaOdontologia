@@ -5,7 +5,10 @@
 package com.clinicaodontologica.mx.persistencia;
 
 import com.clinicaodontologica.mx.logica.Usuario;
+import com.clinicaodontologica.mx.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,6 +32,26 @@ public class ControladoraPersistencia {
 
     public List<Usuario> obtenerUsuarios() {
         return usuarioJPA.findUsuarioEntities();
+    }
+
+    public void eliminarUsuario(int id) {
+        try {
+            usuarioJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al eliminar usuario", ex);
+        }
+    }
+
+    public Usuario obtenerUsuario(int id) {
+        return usuarioJPA.findUsuario(id);
+    }
+
+    public void editarUsuario(Usuario usuarioEditado) {
+        try {
+            usuarioJPA.edit(usuarioEditado);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al editar usuario", ex);
+        }
     }
     
 }

@@ -27,4 +27,16 @@ public class ControladoraLogica {
     public List<Usuario> obtenerUsuarios() {
         return controlPersis.obtenerUsuarios();
     }
+
+    public void eliminarUsuario(int id) {
+        controlPersis.eliminarUsuario(id);
+    }
+
+    public Usuario obtenerUsuario(int id) {
+        return controlPersis.obtenerUsuario(id);
+    }
+
+    public void editarUsuario(Usuario usuarioEditado) {
+        controlPersis.editarUsuario(usuarioEditado);
+    }
 }
