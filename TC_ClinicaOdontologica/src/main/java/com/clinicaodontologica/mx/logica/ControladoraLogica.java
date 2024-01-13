@@ -5,6 +5,7 @@
 package com.clinicaodontologica.mx.logica;
 
 import com.clinicaodontologica.mx.persistencia.ControladoraPersistencia;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,4 +40,24 @@ public class ControladoraLogica {
     public void editarUsuario(Usuario usuarioEditado) {
         controlPersis.editarUsuario(usuarioEditado);
     }
+
+    public boolean validarUsuario(String usuario, String contrasena) {
+        boolean usuarioValido = false;
+        List<Usuario> listaUsuarios = new ArrayList<>();
+        listaUsuarios = controlPersis.obtenerUsuarios();
+        for (Usuario u : listaUsuarios) {
+            if (u.getNombreUsuario().equals(usuario)) {
+                if (u.getContrasena().equals(contrasena)) {
+                    usuarioValido = true;
+                } else {
+                    usuarioValido = false;
+                }
+
+            }
+        }
+
+        return usuarioValido;
+    }
+    
+    
 }
