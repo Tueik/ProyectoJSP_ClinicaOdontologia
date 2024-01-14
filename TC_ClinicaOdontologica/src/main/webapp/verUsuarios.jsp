@@ -16,6 +16,7 @@
     </head>
     <body id="page-top">
 
+        <%@include file="components/acceso.jsp" %>
         <!-- Page Wrapper -->
         <div id="wrapper">
             <%@ include file="components/sidebar.jsp" %>
@@ -56,7 +57,8 @@
                                             </tr>
                                         </tfoot>
                                         <% 
-                                            List<Usuario> listaUsuarios = (List) request.getSession().getAttribute("listaUsuarios");
+                                            List<Usuario> listaUsuarios = null;                                         
+                                            listaUsuarios = (List) request.getSession().getAttribute("listaUsuarios");                                                   
                                         %>
                                         <tbody>
                                             <% for(Usuario usr : listaUsuarios) { %>
@@ -71,7 +73,7 @@
                                                         </button>
                                                         <input type="hidden" name="id" value="<%= usr.getId_usuario() %>">
                                                     </form>
-                                                    <form action="SvEditarUsuarioUsuarios" name="editar" method="POST"><!-- Se manda el código al servlet -->
+                                                    <form action="SvEditarUsuarios" name="editar" method="GET"><!-- Se manda el código al servlet -->
                                                         <button type="submit" class="btn btn-primary btn-user btn-block" style="margin-left: 5px;">
                                                             <i class="fas fa-pencil-alt"></i> Editar
                                                         </button>
@@ -80,7 +82,6 @@
                                                 </td>
                                             </tr>
                                             <% } %>
-                                            
                                         </tbody>
                                     </table>
                                 </div>
