@@ -46,7 +46,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Acciones:</h6>
                         <a class="collapse-item" href="">Ver Odontólogos</a>
-                        <a class="collapse-item" href="">Ingreso de Odontólogos</a>
+                        <a class="collapse-item" href="registrarOdontologo.jsp">Registro de Odontólogos</a>
                     </div>
                 </div>
             </li>
@@ -63,7 +63,24 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Acciones:</h6>
                         <a class="collapse-item" href="utilities-color.html">Ver Pacientes</a>
-                        <a class="collapse-item" href="utilities-border.html">Ingreso de Pacientes</a>
+                        <a class="collapse-item" href="#">Registro de Pacientes</a>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-solid fa-user"></i>
+                    <span>Usuarios</span>
+                </a>
+                <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUsuarios"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Acciones:</h6>
+                        <a class="collapse-item" href="SvUsuarios">Ver Usuarios</a>
+                        <a class="collapse-item" href="registrarUsuario.jsp">Registro de Usuarios</a>
                     </div>
                 </div>
             </li>
