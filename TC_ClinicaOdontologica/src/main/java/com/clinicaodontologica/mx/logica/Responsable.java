@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 @Entity
 public class Responsable extends Persona {
     
-    //private int id_responsable;
     private String tipo_resp;
 
     public Responsable() {

@@ -8,7 +8,6 @@ import javax.persistence.OneToOne;
 @Entity
 public class Secretario extends Persona {
     
-    //private int id_secretario;
     private String sector;
     @OneToOne
     private Usuario usuario;

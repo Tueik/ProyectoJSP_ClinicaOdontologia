@@ -11,7 +11,6 @@ import javax.persistence.OneToOne;
 @Entity
 public class Paciente extends Persona implements Serializable {
     
-    //private int id_paciente;
     private boolean tiene_SS; // Seguro social
     private String tipoSangre;
     

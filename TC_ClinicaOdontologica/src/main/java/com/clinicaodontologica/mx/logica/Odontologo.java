@@ -11,7 +11,6 @@ import javax.persistence.OneToOne;
 @Entity
 public class Odontologo extends Persona implements Serializable {
     
-    //private int id_odontologo;
     private String especialidad;
     
     @OneToMany(mappedBy = "turno_odontologo")
