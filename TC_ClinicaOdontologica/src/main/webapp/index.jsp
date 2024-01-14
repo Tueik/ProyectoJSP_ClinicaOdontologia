@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <%@ include file="components/header.jsp" %>
+        <%@ include file="components/header.jsp" %>
     </head>
     <body id="page-top">
-
+        <%@include file="components/acceso.jsp" %> <!-- Validación de Acceso -->
         <!-- Page Wrapper -->
         <div id="wrapper">
             <%@ include file="components/sidebar.jsp" %>

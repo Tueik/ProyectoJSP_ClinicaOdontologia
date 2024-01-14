@@ -10,7 +10,7 @@
         <%@ include file="components/header.jsp" %>
     </head>  
     <body>
-
+        <%@include file="components/acceso.jsp" %> <!-- Validación de Acceso -->
         <!-- Page Wrapper -->
         <div id="wrapper">
             <%@ include file="components/sidebar.jsp" %>
@@ -29,6 +29,7 @@
                         </div>
                         <!-- End of Page Heading -->
                         <h2>Registrar Usuarios</h2>
+                        <p>Este es el apartado para registrar un usuario del sistema.</p>
 
                         <form class="user" action="SvUsuarios" method="POST">
                             <div class="form-group col">
