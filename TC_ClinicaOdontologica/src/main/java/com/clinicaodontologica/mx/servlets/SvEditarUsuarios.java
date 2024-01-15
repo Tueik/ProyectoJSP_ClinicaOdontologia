@@ -5,6 +5,7 @@
 package com.clinicaodontologica.mx.servlets;
 
 import com.clinicaodontologica.mx.logica.ControladoraLogica;
+import com.clinicaodontologica.mx.logica.Rol;
 import com.clinicaodontologica.mx.logica.Usuario;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -48,14 +49,11 @@ public class SvEditarUsuarios extends HttpServlet {
             throws ServletException, IOException {
         String nombre = request.getParameter("nombreusuario");
         String contrasena = request.getParameter("contrasena");
-        String rol = request.getParameter("rol");
+        String rolSeleccionado = request.getParameter("rol");
+  
+        Usuario usuarioOriginal = (Usuario) request.getSession().getAttribute("usuarioEditar");
         
-        Usuario usuarioEditado = (Usuario) request.getSession().getAttribute("usuarioEditar");
-        usuarioEditado.setNombreUsuario(nombre);
-        usuarioEditado.setContrasena(contrasena);
-        usuarioEditado.setRol(rol);
-        
-        control.editarUsuario(usuarioEditado);
+        control.editarUsuario(usuarioOriginal, nombre, contrasena, rolSeleccionado);
         
         response.sendRedirect("SvUsuarios");
     }

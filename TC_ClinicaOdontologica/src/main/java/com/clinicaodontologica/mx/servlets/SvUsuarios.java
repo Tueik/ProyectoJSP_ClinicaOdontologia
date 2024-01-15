@@ -52,9 +52,9 @@ public class SvUsuarios extends HttpServlet {
         
         String nombreUsuario = request.getParameter("nombreusuario");
         String contrasena = request.getParameter("contrasena");
-        String rol = request.getParameter("rol");
+        String rolSeleccionado = request.getParameter("rol");
         
-        control.crearUsuario(nombreUsuario, contrasena, rol);
+        control.crearUsuario(nombreUsuario, contrasena, rolSeleccionado);
         
         response.sendRedirect("SvUsuarios");
         
