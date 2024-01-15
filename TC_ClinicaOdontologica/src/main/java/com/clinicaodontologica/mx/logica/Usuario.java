@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -16,16 +18,19 @@ public class Usuario implements Serializable {
     private int id_usuario;
     private String nombreUsuario;
     private String contrasena;
-    private String rol;
+    
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rolUsuario;
 
     public Usuario() {
     }
 
-    public Usuario(int id_usuario, String nombreUsuario, String contrasena, String rol) {
+    public Usuario(int id_usuario, String nombreUsuario, String contrasena, Rol rolUsuario) {
         this.id_usuario = id_usuario;
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
-        this.rol = rol;
+        this.rolUsuario = rolUsuario;
     }
 
     public int getId_usuario() {
@@ -52,12 +57,12 @@ public class Usuario implements Serializable {
         this.contrasena = contrasena;
     }
 
-    public String getRol() {
-        return rol;
+    public Rol getRol() {
+        return rolUsuario;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setRol(Rol rolUsuario) {
+        this.rolUsuario = rolUsuario;
     }
     
     
