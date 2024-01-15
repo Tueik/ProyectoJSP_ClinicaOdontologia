@@ -23,11 +23,9 @@ import javax.persistence.criteria.Root;
 public class ResponsableJpaController implements Serializable {
 
     public ResponsableJpaController() {
-        
         emf = Persistence.createEntityManagerFactory("ClinicaOdontologicaPU");
-        
     }
-    
+
     public ResponsableJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }

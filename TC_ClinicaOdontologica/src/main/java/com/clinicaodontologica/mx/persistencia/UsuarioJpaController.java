@@ -26,10 +26,10 @@ public class UsuarioJpaController implements Serializable {
         this.emf = emf;
     }
 
-    public UsuarioJpaController() {        
+    public UsuarioJpaController() {
         emf = Persistence.createEntityManagerFactory("ClinicaOdontologicaPU");
     }
-
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {

@@ -2,6 +2,15 @@
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
   <persistence-unit name="ClinicaOdontologicaPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.clinicaodontologica.mx.logica.Horario</class>
+    <class>com.clinicaodontologica.mx.logica.Odontologo</class>
+    <class>com.clinicaodontologica.mx.logica.Paciente</class>
+    <class>com.clinicaodontologica.mx.logica.Persona</class>
+    <class>com.clinicaodontologica.mx.logica.Responsable</class>
+    <class>com.clinicaodontologica.mx.logica.Rol</class>
+    <class>com.clinicaodontologica.mx.logica.Secretario</class>
+    <class>com.clinicaodontologica.mx.logica.Turno</class>
+    <class>com.clinicaodontologica.mx.logica.Usuario</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tc_clinicaodontologica?serverTimezone=UTC"/>
