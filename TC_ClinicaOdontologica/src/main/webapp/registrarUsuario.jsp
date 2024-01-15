@@ -4,13 +4,15 @@
     Author     : ricar
 --%>
 
+<%@page import="com.clinicaodontologica.mx.logica.Rol"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
         <%@ include file="components/header.jsp" %>
     </head>  
     <body>
-        <%@include file="components/acceso.jsp" %> <!-- Validación de Acceso -->
+
         <!-- Page Wrapper -->
         <div id="wrapper">
             <%@ include file="components/sidebar.jsp" %>
@@ -41,13 +43,19 @@
                                     <input type="password" class="form-control form-control-user" id="contrasena" name="contrasena"
                                            placeholder="Contraseña">
                                 </div>
-                                <div class="col-sm-6 mb-3">
-                                    <input type="text" class="form-control form-control-user" id="rol" name="rol"
-                                           placeholder="Rol">
+                                <div class="col-sm-6 mb-3">                                  
+                                    <select class="form-control form-select-user rounded-pill" id="rol" name="rol" placeholder="Rol"> 
+                                        <option selected>- Seleccionar rol -</option>
+                                        <% 
+                                        List<Rol> listaRoles = (List) request.getSession().getAttribute("listaRoles");
+                                        for(Rol r : listaRoles){
+                                        %>
+                                        <option value="<%= r.getNombreRol() %>"><%= r.getNombreRol() %></option>     
+                                        <% } %>
+                                    </select>                                    
                                 </div>
-
+                                
                                 <!-- Usuarios y horarios -->
-
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-user">

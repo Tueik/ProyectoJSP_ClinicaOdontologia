@@ -65,7 +65,7 @@
                                             <tr>                                               
                                                 <td id="id_usr<%= usr.getId_usuario() %>"><%= usr.getId_usuario() %></td>
                                                 <td><%= usr.getNombreUsuario() %></td>
-                                                <td><%= usr.getRol() %></td>
+                                                <td><%= usr.getRol().getNombreRol() %></td>
                                                 <td style="display: flex; width: 230px;">
                                                     <form action="SvEliminarUsuarios" name="eliminar" method="POST"><!-- Se manda el código al servlet -->
                                                         <button type="submit" class="btn btn-primary btn-user btn-block" style="background-color: red; margin-right: 5px;">
