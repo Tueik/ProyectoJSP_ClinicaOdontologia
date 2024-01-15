@@ -15,16 +15,18 @@ import java.util.List;
 public class ControladoraLogica {
     ControladoraPersistencia controlPersis = new ControladoraPersistencia();
     
-    public void crearUsuario(String nombreUsuario, String contrasena, String rol){
+    public void crearUsuario(String nombreUsuario, String contrasena, String rolSeleccionado){
         
         Usuario nuevoUsuario = new Usuario();
         nuevoUsuario.setNombreUsuario(nombreUsuario);
         nuevoUsuario.setContrasena(contrasena);
-        nuevoUsuario.setRol(rol);
         
+        Rol rolUsuario = asignarRol(rolSeleccionado);
+        
+        nuevoUsuario.setRol(rolUsuario);
         controlPersis.crearUsuario(nuevoUsuario);
     }
-
+    
     public List<Usuario> obtenerUsuarios() {
         return controlPersis.obtenerUsuarios();
     }
@@ -37,7 +39,11 @@ public class ControladoraLogica {
         return controlPersis.obtenerUsuario(id);
     }
 
-    public void editarUsuario(Usuario usuarioEditado) {
+    public void editarUsuario(Usuario usuarioEditado, String nombre, String contrasena, String rolSeleccionado) {
+        usuarioEditado.setNombreUsuario(nombre);
+        usuarioEditado.setContrasena(contrasena);
+        Rol rol = asignarRol(rolSeleccionado);      
+        usuarioEditado.setRol(rol);
         controlPersis.editarUsuario(usuarioEditado);
     }
 
@@ -57,6 +63,21 @@ public class ControladoraLogica {
         }
 
         return usuarioValido;
+    }
+
+    public Rol asignarRol(String rolSeleccionado){
+        Rol rol = null;
+        List<Rol> listaRoles = controlPersis.obtenerRoles();
+        for(Rol r : listaRoles){
+            if(r.getNombreRol().equals(rolSeleccionado)){
+                rol = r;
+            }
+        } 
+        return rol;
+    }
+    
+    public List<Rol> obtenerRoles() {
+        return controlPersis.obtenerRoles();
     }
     
     
