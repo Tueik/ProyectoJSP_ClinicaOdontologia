@@ -4,6 +4,7 @@
  */
 package com.clinicaodontologica.mx.persistencia;
 
+import com.clinicaodontologica.mx.logica.Rol;
 import com.clinicaodontologica.mx.logica.Usuario;
 import com.clinicaodontologica.mx.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
@@ -23,9 +24,17 @@ public class ControladoraPersistencia {
     SecretarioJpaController secretarioJPA = new SecretarioJpaController();
     TurnoJpaController turnoJPA = new TurnoJpaController();
     UsuarioJpaController usuarioJPA = new UsuarioJpaController();
+    RolJpaController rolJPA = new RolJpaController();
 
     
+
+    //<editor-fold defaultstate="collapsed" desc="rolJPA">
+    public List<Rol> obtenerRoles(){
+        return rolJPA.findRolEntities();
+    }
+    //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="usuarioJPA">
     public void crearUsuario(Usuario nuevoUsuario) {
         usuarioJPA.create(nuevoUsuario);
     }
@@ -53,5 +62,5 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al editar usuario", ex);
         }
     }
-    
+    //</editor-fold>
 }
