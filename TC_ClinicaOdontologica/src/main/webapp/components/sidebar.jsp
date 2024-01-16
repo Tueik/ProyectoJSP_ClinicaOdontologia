@@ -10,7 +10,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-regular fa-tooth"></i>
                 </div>
@@ -22,7 +22,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.jsp">
                     <i class="fas fa-solid fa-bars"></i>
                     <span>Panel de Control</span></a>
             </li>
@@ -62,7 +62,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Acciones:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Ver Pacientes</a>
+                        <a class="collapse-item" href="#">Ver Pacientes</a>
                         <a class="collapse-item" href="#">Registro de Pacientes</a>
                     </div>
                 </div>
