@@ -8,6 +8,7 @@ import com.clinicaodontologica.mx.logica.ControladoraLogica;
 import com.clinicaodontologica.mx.logica.Rol;
 import com.clinicaodontologica.mx.logica.Usuario;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,8 +37,12 @@ public class SvEditarUsuarios extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Usuario usuarioEditar = control.obtenerUsuario(id);
         
+        List<Rol> listaRoles = control.obtenerRoles();
+        
         HttpSession sesion = request.getSession();
         sesion.setAttribute("usuarioEditar", usuarioEditar);
+        sesion.setAttribute("listaRoles", listaRoles);
+        
         
         response.sendRedirect("editarUsuario.jsp");
         

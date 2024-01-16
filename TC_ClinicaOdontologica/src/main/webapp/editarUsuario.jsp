@@ -4,6 +4,8 @@
     Author     : ricar
 --%>
 
+<%@page import="com.clinicaodontologica.mx.logica.Rol"%>
+<%@page import="java.util.List"%>
 <%@page import="com.clinicaodontologica.mx.logica.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
@@ -43,9 +45,18 @@
                                     <input type="password" class="form-control form-control-user" id="contrasena" name="contrasena"
                                            placeholder="Contraseña" value="<%= usuario.getContrasena()%>">
                                 </div>
-                                <div class="col-sm-6 mb-3">
-                                    <input type="text" class="form-control form-control-user" id="rol" name="rol"
-                                           placeholder="Rol" value="<%= usuario.getRol()%>">
+                                <div class="col-sm-6 mb-3">                                
+                                    <select class="form-control form-select-user rounded-pill" id="rol" name="rol" placeholder="Rol">                                         
+                                      <% List<Rol> listaRoles = (List) request.getSession().getAttribute("listaRoles"); 
+                                          for(Rol r : listaRoles){                                             
+                                            if(usuario.getRol().getNombreRol().equals(r.getNombreRol())){ %> 
+                                                <option selected value="<%= usuario.getRol().getNombreRol() %>"><%= usuario.getRol().getNombreRol() %></option>
+                                            <% } else { %>
+                                                <option value="<%= r.getNombreRol() %>"><%= r.getNombreRol() %></option>
+                                            <% } %>
+                                            
+                                      <% } %>
+                                    </select>   
                                 </div>
 
                                 <!-- Usuarios y horarios -->
