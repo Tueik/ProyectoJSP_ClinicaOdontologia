@@ -5,8 +5,14 @@
 package com.clinicaodontologica.mx.logica;
 
 import com.clinicaodontologica.mx.persistencia.ControladoraPersistencia;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -79,6 +85,62 @@ public class ControladoraLogica {
     public List<Rol> obtenerRoles() {
         return controlPersis.obtenerRoles();
     }
+
+    public void crearOdontologo(String dni, String nombre, String apellidos, String telefono, String direccion, String txtFecha_nac, String especialidad) {
+        Odontologo nuevoOdontologo = new Odontologo();
+        nuevoOdontologo.setDni(dni);
+        nuevoOdontologo.setNombre(nombre);
+        nuevoOdontologo.setApellido(apellidos);
+        nuevoOdontologo.setTelefono(telefono);
+        nuevoOdontologo.setDireccion(direccion);
+        
+        Date fecha_nac = formatearFecha(txtFecha_nac);
+        nuevoOdontologo.setFecha_nac(fecha_nac);
+        
+        nuevoOdontologo.setEspecialidad(especialidad);
+        
+        controlPersis.crearOdontologo(nuevoOdontologo);
+    }
     
+    public Date formatearFecha(String fechatxt){
+        Date fechaFormateada = null;
+        try {
+            
+            SimpleDateFormat convertirTextoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            Date fechaObj = convertirTextoFecha.parse(fechatxt);
+            
+            SimpleDateFormat formatearFecha = new SimpleDateFormat("dd-MM-yyyy");
+            
+            fechaFormateada = formatearFecha.parse(formatearFecha.format(fechaObj));
+               
+        } catch (ParseException ex) {
+            Logger.getLogger(ControladoraLogica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return fechaFormateada;
+    }
+
+    public List<Odontologo> obtenerOdontologos() {
+        return controlPersis.obtenerOdontologos();
+    }
+
+    public void eliminarOdontologo(int id) {
+        controlPersis.eliminarOdontologo(id);
+    }
+
+    public Odontologo obtenerOdontologo(int id) {
+        return controlPersis.obtenerOdontologo(id);
+    }
+
+    public void editarOdontologo(Odontologo odEditar, String dni, String nombre, String apellidos, String telefono, String direccion, String fechatxt, String especialidad) {
+        odEditar.setDni(dni);
+        odEditar.setNombre(nombre);
+        odEditar.setApellido(apellidos);
+        odEditar.setTelefono(telefono);
+        odEditar.setDireccion(direccion);
+        odEditar.setFecha_nac(formatearFecha(fechatxt));
+        odEditar.setEspecialidad(especialidad);
+        
+        controlPersis.editarOdontologo(odEditar);
+    }
     
 }
