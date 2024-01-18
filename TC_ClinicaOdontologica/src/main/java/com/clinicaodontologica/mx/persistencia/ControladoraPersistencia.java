@@ -4,6 +4,7 @@
  */
 package com.clinicaodontologica.mx.persistencia;
 
+import com.clinicaodontologica.mx.logica.Odontologo;
 import com.clinicaodontologica.mx.logica.Rol;
 import com.clinicaodontologica.mx.logica.Usuario;
 import com.clinicaodontologica.mx.persistencia.exceptions.NonexistentEntityException;
@@ -63,4 +64,32 @@ public class ControladoraPersistencia {
         }
     }
     //</editor-fold>
+
+    public void crearOdontologo(Odontologo nuevoOdontologo) {
+        odontologoJPA.create(nuevoOdontologo);
+    }
+
+    public List<Odontologo> obtenerOdontologos() {
+        return odontologoJPA.findOdontologoEntities();
+    }
+
+    public void eliminarOdontologo(int id) {
+        try {
+            odontologoJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al eliminar odontologo", ex);
+        }
+    }
+
+    public Odontologo obtenerOdontologo(int id) {
+        return odontologoJPA.findOdontologo(id);
+    }
+
+    public void editarOdontologo(Odontologo odOriginal) {
+        try {
+            odontologoJPA.edit(odOriginal);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al editar odontologo", ex);
+        }
+    }
 }
