@@ -5,6 +5,7 @@
 package com.clinicaodontologica.mx.persistencia;
 
 import com.clinicaodontologica.mx.logica.Odontologo;
+import com.clinicaodontologica.mx.logica.Paciente;
 import com.clinicaodontologica.mx.logica.Rol;
 import com.clinicaodontologica.mx.logica.Usuario;
 import com.clinicaodontologica.mx.persistencia.exceptions.NonexistentEntityException;
@@ -91,5 +92,25 @@ public class ControladoraPersistencia {
         } catch (Exception ex) {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al editar odontologo", ex);
         }
+    }
+
+    public List<Paciente> obtenerPacientes() {
+        return pacienteJPA.findPacienteEntities();
+    }
+
+    public void crearPaciente(Paciente nuevoPaciente) {
+        pacienteJPA.create(nuevoPaciente);
+    }
+
+    public void eliminarPaciente(int idPaciente) {
+        try {
+            pacienteJPA.destroy(idPaciente);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al eliminar paciente", ex);
+        }
+    }
+
+    public Paciente obtenerPaciente(int id) {
+        return pacienteJPA.findPaciente(id);
     }
 }

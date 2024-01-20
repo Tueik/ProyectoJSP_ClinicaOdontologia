@@ -5,7 +5,6 @@
 package com.clinicaodontologica.mx.logica;
 
 import com.clinicaodontologica.mx.persistencia.ControladoraPersistencia;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -141,6 +140,24 @@ public class ControladoraLogica {
         odEditar.setEspecialidad(especialidad);
         
         controlPersis.editarOdontologo(odEditar);
+    }
+
+    public List<Paciente> obtenerPacientes() {
+        return controlPersis.obtenerPacientes();
+    }
+
+    public void crearPaciente(String dni, String nombre, String apellido, String telefono, String direccion, String fecha_nacText, String tiene_ss, String responsable) {
+        Paciente nuevoPaciente = new Paciente();
+        
+        controlPersis.crearPaciente(nuevoPaciente);
+    }
+
+    public void eliminarPaciente(int idPaciente) {
+        controlPersis.eliminarPaciente(idPaciente);
+    }
+
+    public Paciente obtenerPaciente(int id) {
+        return controlPersis.obtenerPaciente(id);
     }
     
 }
