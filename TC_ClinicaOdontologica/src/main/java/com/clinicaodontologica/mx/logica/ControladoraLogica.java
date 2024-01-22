@@ -145,11 +145,35 @@ public class ControladoraLogica {
     public List<Paciente> obtenerPacientes() {
         return controlPersis.obtenerPacientes();
     }
+    
+    public boolean comprobarSeguroSocial(String tiene_ss){
+        boolean seguroSocial = false;
+        if(tiene_ss.equals("si")){
+            seguroSocial = true;
+        }
+        return seguroSocial;
+    }
 
-    public void crearPaciente(String dni, String nombre, String apellido, String telefono, String direccion, String fecha_nacText, String tiene_ss, String responsable) {
+    public void crearPaciente(String dni, String nombre, String apellido, String telefono,
+            String direccion, String fecha_nacText, String tiene_ss, String tipo_sangre) {
+        
         Paciente nuevoPaciente = new Paciente();
         
+        nuevoPaciente.setDni(dni);
+        nuevoPaciente.setNombre(nombre);
+        nuevoPaciente.setApellido(apellido);
+        nuevoPaciente.setTelefono(telefono);
+        nuevoPaciente.setDireccion(direccion);
+        
+        nuevoPaciente.setFecha_nac(formatearFecha(fecha_nacText));
+        
+        nuevoPaciente.setTiene_SS(comprobarSeguroSocial(tiene_ss));
+    
+        nuevoPaciente.setTipoSangre(tipo_sangre);
+        
+   
         controlPersis.crearPaciente(nuevoPaciente);
+        
     }
 
     public void eliminarPaciente(int idPaciente) {
@@ -158,6 +182,19 @@ public class ControladoraLogica {
 
     public Paciente obtenerPaciente(int id) {
         return controlPersis.obtenerPaciente(id);
+    }
+
+    public void editarPaciente(Paciente pacienteOriginal, String dni, String nombre, String apellido, String telefono, String direccion, String fecha_nacText, String tiene_ss, String tipo_sangre) {
+        pacienteOriginal.setDni(dni);
+        pacienteOriginal.setNombre(nombre);
+        pacienteOriginal.setApellido(apellido);
+        pacienteOriginal.setTelefono(telefono);
+        pacienteOriginal.setDireccion(direccion);
+        pacienteOriginal.setFecha_nac(formatearFecha(fecha_nacText));
+        pacienteOriginal.setTiene_SS(comprobarSeguroSocial(tiene_ss));
+        pacienteOriginal.setTipoSangre(tipo_sangre);
+        
+        controlPersis.editarPaciente(pacienteOriginal);
     }
     
 }
