@@ -44,18 +44,13 @@ public class SvRegistrarPacientes extends HttpServlet {
         String telefono = request.getParameter("telefono");
         String direccion = request.getParameter("direccion");
         String fecha_nacText = request.getParameter("fecha_nac");
-        String tiene_ss = request.getParameter("seguro_social");
-        String responsable = request.getParameter("responsable");
+        String tiene_ss = request.getParameter("tiene_ss");
+        String tipo_sangre = request.getParameter("tipo_sangre");
         
-        control.crearPaciente(dni, nombre, apellido, telefono, direccion, fecha_nacText, tiene_ss, responsable);
+        control.crearPaciente(dni, nombre, apellido, telefono, direccion, fecha_nacText, tiene_ss, tipo_sangre);
  
-        response.sendRedirect("verPacientes.jsp");
-        
-        /*
-            public Paciente(boolean tiene_SS, String tipoSangre, Responsable responsable, List<Turno> listaTurnos,
-            int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
-        */
-        
+        response.sendRedirect("SvPacientes");
+               
     }
 
     

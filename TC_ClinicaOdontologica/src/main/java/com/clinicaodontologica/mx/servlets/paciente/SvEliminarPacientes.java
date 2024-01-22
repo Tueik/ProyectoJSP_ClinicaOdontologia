@@ -39,7 +39,7 @@ public class SvEliminarPacientes extends HttpServlet {
             throws ServletException, IOException {
         int idPaciente = Integer.parseInt(request.getParameter("id"));
         control.eliminarPaciente(idPaciente);
-        response.sendRedirect("verPacientes.jsp");
+        response.sendRedirect("SvPacientes");
     }
 
     
