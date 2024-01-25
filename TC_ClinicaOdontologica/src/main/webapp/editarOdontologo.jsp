@@ -2,7 +2,8 @@
     Document   : editarOdontologo
     Created on : 17 ene. 2024, 7:50:57 p. m.
     Author     : ricar
---%><%@page import="java.text.SimpleDateFormat"%>
+--%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.clinicaodontologica.mx.logica.Odontologo"%>
 
 <%@page import="com.clinicaodontologica.mx.logica.Rol"%>
