@@ -86,6 +86,30 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">                     
+            <hr class="sidebar-divider">
+            <!-- Heading 2 -->
+            <div class="sidebar-heading">
+                Gestión Interna
+            </div>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSecretarios"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-solid fa-user"></i>
+                    <span>Secretarios</span>
+                </a>
+                <div id="collapseSecretarios" class="collapse" aria-labelledby="headingSecretarios"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Acciones:</h6>
+                        <a class="collapse-item" href="SvSecretarios">Ver Secretarios</a>
+                        <a class="collapse-item" href="registrarSecretario.jsp">Registro de Secretarios</a>
+                    </div>
+                </div>
+            </li>
+  
+            <!-- Divider 2 -->
+            <hr class="sidebar-divider">
         </ul>
         <!-- End of Sidebar -->
