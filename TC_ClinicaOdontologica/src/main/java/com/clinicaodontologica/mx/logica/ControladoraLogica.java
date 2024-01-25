@@ -196,5 +196,42 @@ public class ControladoraLogica {
         
         controlPersis.editarPaciente(pacienteOriginal);
     }
+
+    public void eliminarSecretario(int idEliminar) {
+        controlPersis.eliminarSecretario(idEliminar);
+    }
+
+    public void crearSecretario(String dni, String nombre, String apellido, String telefono, String direccion, String fecha_nacTxt, String sector) {
+        Secretario nuevoSecretario = new Secretario();
+        nuevoSecretario.setDni(dni);
+        nuevoSecretario.setNombre(nombre);
+        nuevoSecretario.setApellido(apellido);
+        nuevoSecretario.setTelefono(telefono);
+        nuevoSecretario.setDireccion(direccion);
+        nuevoSecretario.setFecha_nac(formatearFecha(fecha_nacTxt));
+        nuevoSecretario.setSector(sector);
+        
+        controlPersis.crearSecretario(nuevoSecretario);
+    }
+
+    public void editarSecretario(Secretario secEditado, String dni, String nombre, String apellido, String telefono, String direccion, String fecha_nacTxt, String sector) {
+        secEditado.setDni(dni);
+        secEditado.setNombre(nombre);
+        secEditado.setApellido(apellido);
+        secEditado.setTelefono(telefono);
+        secEditado.setDireccion(direccion);
+        secEditado.setFecha_nac(formatearFecha(fecha_nacTxt));
+        secEditado.setSector(sector);
+        
+        controlPersis.editarSecretario(secEditado);
+    }
+
+    public Secretario obtenerSecretario(int idEditar) {
+        return controlPersis.obtenerSecretario(idEditar);
+    }
+
+    public List<Secretario> obtenerSecretarios() {
+        return controlPersis.obtenerSecretarios();
+    }
     
 }
