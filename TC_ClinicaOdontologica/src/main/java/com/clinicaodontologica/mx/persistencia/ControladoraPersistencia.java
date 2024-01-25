@@ -7,6 +7,7 @@ package com.clinicaodontologica.mx.persistencia;
 import com.clinicaodontologica.mx.logica.Odontologo;
 import com.clinicaodontologica.mx.logica.Paciente;
 import com.clinicaodontologica.mx.logica.Rol;
+import com.clinicaodontologica.mx.logica.Secretario;
 import com.clinicaodontologica.mx.logica.Usuario;
 import com.clinicaodontologica.mx.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
@@ -120,5 +121,33 @@ public class ControladoraPersistencia {
         } catch (Exception ex) {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al editar paciente", ex);
         }
+    }
+
+    public void eliminarSecretario(int idEliminar) {
+        try {
+            secretarioJPA.destroy(idEliminar);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al eliminar secretario", ex);
+        }
+    }
+
+    public void crearSecretario(Secretario nuevoSecretario) {
+        secretarioJPA.create(nuevoSecretario);
+    }
+
+    public void editarSecretario(Secretario secEditado) {
+        try {
+            secretarioJPA.edit(secEditado);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al editar secretario", ex);
+        }
+    }
+
+    public Secretario obtenerSecretario(int idEditar) {
+        return secretarioJPA.findSecretario(idEditar);
+    }
+
+    public List<Secretario> obtenerSecretarios() {
+        return secretarioJPA.findSecretarioEntities();
     }
 }
