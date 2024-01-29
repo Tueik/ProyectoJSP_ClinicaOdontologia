@@ -70,17 +70,17 @@
             
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResponsables"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-solid fa-user"></i>
-                    <span>Usuarios</span>
+                    <span>Responsables</span>
                 </a>
-                <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUsuarios"
+                <div id="collapseResponsables" class="collapse" aria-labelledby="headingResponsables"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Acciones:</h6>
-                        <a class="collapse-item" href="SvUsuarios">Ver Usuarios</a>
-                        <a class="collapse-item" href="SvRegistrarUsuarios">Registro de Usuarios</a>
+                        <a class="collapse-item" href="SvResponsables">Ver Responsables</a>
+                        <a class="collapse-item" href="registrarResponsable.jsp">Registro de Responsables</a>
                     </div>
                 </div>
             </li>
@@ -105,6 +105,22 @@
                         <h6 class="collapse-header">Acciones:</h6>
                         <a class="collapse-item" href="SvSecretarios">Ver Secretarios</a>
                         <a class="collapse-item" href="registrarSecretario.jsp">Registro de Secretarios</a>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-solid fa-user"></i>
+                    <span>Usuarios</span>
+                </a>
+                <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUsuarios"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Acciones:</h6>
+                        <a class="collapse-item" href="SvUsuarios">Ver Usuarios</a>
+                        <a class="collapse-item" href="SvRegistrarUsuarios">Registro de Usuarios</a>
                     </div>
                 </div>
             </li>

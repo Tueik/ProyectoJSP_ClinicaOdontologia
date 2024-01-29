@@ -233,5 +233,42 @@ public class ControladoraLogica {
     public List<Secretario> obtenerSecretarios() {
         return controlPersis.obtenerSecretarios();
     }
+
+    public List<Responsable> obtenerResponsables() {
+        return controlPersis.obtenerResponsables();
+    }
+
+    public void eliminarResponsable(int idEliminar) {
+        controlPersis.eliminarResponsable(idEliminar);
+    }
+
+    public Responsable obtenerResponsable(int idResponsable) {
+        return controlPersis.obtenerResponsable(idResponsable);
+    }
+
+    public void crearResponsable(String dni, String nombre, String apellido, String telefono, String direccion, String fecha_nacTxt, String tipo_resp) {
+        Responsable nuevoResponsable = new Responsable();
+        nuevoResponsable.setDni(dni);
+        nuevoResponsable.setNombre(nombre);
+        nuevoResponsable.setApellido(apellido);
+        nuevoResponsable.setTelefono(telefono);
+        nuevoResponsable.setDireccion(direccion);
+        nuevoResponsable.setFecha_nac(formatearFecha(fecha_nacTxt));
+        nuevoResponsable.setTipo_resp(tipo_resp);
+        
+        controlPersis.crearResponsable(nuevoResponsable);
+    }
+
+    public void editarResponsable(Responsable responsableOriginal, String dni, String nombre, String apellido, String telefono, String direccion, String fecha_nacTxt, String tipo_resp) {
+        responsableOriginal.setDni(dni);
+        responsableOriginal.setNombre(nombre);
+        responsableOriginal.setApellido(apellido);
+        responsableOriginal.setTelefono(telefono);
+        responsableOriginal.setDireccion(direccion);
+        responsableOriginal.setFecha_nac(formatearFecha(fecha_nacTxt));
+        responsableOriginal.setTipo_resp(tipo_resp);
+        
+        controlPersis.editarResponsable(responsableOriginal);
+    }
     
 }

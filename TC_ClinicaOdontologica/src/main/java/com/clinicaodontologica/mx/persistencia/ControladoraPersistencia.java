@@ -6,6 +6,7 @@ package com.clinicaodontologica.mx.persistencia;
 
 import com.clinicaodontologica.mx.logica.Odontologo;
 import com.clinicaodontologica.mx.logica.Paciente;
+import com.clinicaodontologica.mx.logica.Responsable;
 import com.clinicaodontologica.mx.logica.Rol;
 import com.clinicaodontologica.mx.logica.Secretario;
 import com.clinicaodontologica.mx.logica.Usuario;
@@ -149,5 +150,33 @@ public class ControladoraPersistencia {
 
     public List<Secretario> obtenerSecretarios() {
         return secretarioJPA.findSecretarioEntities();
+    }
+
+    public void crearResponsable(Responsable nuevoResponsable) {
+        responsableJPA.create(nuevoResponsable);
+    }
+
+    public void editarResponsable(Responsable responsableEditado) {
+        try {
+            responsableJPA.edit(responsableEditado);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al editar responsable", ex);
+        }
+    }
+
+    public Responsable obtenerResponsable(int idResponsable) {
+        return responsableJPA.findResponsable(idResponsable);
+    }
+
+    public void eliminarResponsable(int idEliminar) {
+        try {
+            responsableJPA.destroy(idEliminar);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al eliminar responsable", ex);
+        }
+    }
+
+    public List<Responsable> obtenerResponsables() {
+        return responsableJPA.findResponsableEntities();
     }
 }
