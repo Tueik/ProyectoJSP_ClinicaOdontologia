@@ -270,5 +270,73 @@ public class ControladoraLogica {
         
         controlPersis.editarResponsable(responsableOriginal);
     }
+
+    public List<Horario> obtenerHorarios() {
+        return controlPersis.obtenerHorarios();
+    }
+
+    public void crearHorario(String horario_inicio, String horario_fin) {
+        
+        Horario horarioNuevo = new Horario();
+        horarioNuevo.setHorario_inicio(horario_inicio);
+        horarioNuevo.setHorario_fin(horario_fin);
+        
+        controlPersis.crearHorario(horarioNuevo);
+        
+    }
+
+    public void eliminarHorario(int idEliminar) {
+        controlPersis.eliminarHorario(idEliminar);
+    }
+
+    public Horario obtenerHorario(int id) {
+        return controlPersis.obtenerHorario(id);
+    }
+
+    public void editarHorario(Horario horarioOriginal, String horario_inicio, String horario_fin) {
+        horarioOriginal.setHorario_inicio(horario_inicio);
+        horarioOriginal.setHorario_fin(horario_fin);
+        
+        controlPersis.editarHorario(horarioOriginal);
+    }
+
+    public List<Turno> obtenerTurnos() {
+        return controlPersis.obtenerTurnos();
+    }
+
+    public void eliminarTurno(int idEliminar) {
+        controlPersis.eliminarTurno(idEliminar);
+    }
+
+    public void crearTurno(String fecha_turnoTxt, String hora_turno, String afeccion, int idOdontologo, int idPaciente) {
+        
+        Turno nuevoTurno = new Turno();
+        nuevoTurno.setFecha_turno(formatearFecha(fecha_turnoTxt));
+        nuevoTurno.setHora_turno(hora_turno);
+        nuevoTurno.setAfeccion(afeccion);
+        
+        Odontologo OdTurno = obtenerOdontologo(idOdontologo);
+        Paciente PacTurno = obtenerPaciente(idPaciente);
+        
+        nuevoTurno.setTurno_odontologo(OdTurno);
+        nuevoTurno.setTurno_paciente(PacTurno);
+        
+        controlPersis.crearTurno(nuevoTurno);
+        
+    }
+
+    public Turno obtenerTurno(int id) {
+        return controlPersis.obtenerTurno(id);
+    }
+
+    public void editarTurno(Turno turnoOriginal, String fecha_turnoTxt, String hora_turno, String afeccion, int idOdontologo, int idPaciente) {
+        turnoOriginal.setFecha_turno(formatearFecha(fecha_turnoTxt));
+        turnoOriginal.setHora_turno(hora_turno);
+        turnoOriginal.setAfeccion(afeccion);
+        turnoOriginal.setTurno_odontologo(obtenerOdontologo(idOdontologo));
+        turnoOriginal.setTurno_paciente(obtenerPaciente(idPaciente));
+        
+        controlPersis.editarTurno(turnoOriginal);
+    }
     
 }

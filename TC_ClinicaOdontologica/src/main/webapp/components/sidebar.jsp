@@ -91,6 +91,39 @@
             <div class="sidebar-heading">
                 Gestión Interna
             </div>
+            
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHorarios"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-solid fa-user"></i>
+                    <span>Horarios</span>
+                </a>
+                <div id="collapseHorarios" class="collapse" aria-labelledby="headingHorarios"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Acciones:</h6>
+                        <a class="collapse-item" href="SvHorarios">Ver Horarios</a>
+                        <a class="collapse-item" href="registrarHorario.jsp">Registro de Horarios</a>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTurnos"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-solid fa-user"></i>
+                    <span>Turnos</span>
+                </a>
+                <div id="collapseTurnos" class="collapse" aria-labelledby="headingTurnos"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Acciones:</h6>
+                        <a class="collapse-item" href="SvTurnos">Ver Turnos</a>
+                        <a class="collapse-item" href="SvRegistrarTurnos">Registro de Turnos</a>
+                    </div>
+                </div>
+            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">

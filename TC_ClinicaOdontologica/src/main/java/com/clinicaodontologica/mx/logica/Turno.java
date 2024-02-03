@@ -72,6 +72,21 @@ public class Turno implements Serializable {
     public void setAfeccion(String afeccion) {
         this.afeccion = afeccion;
     }
-    
-    
+
+    public Odontologo getTurno_odontologo() {
+        return turno_odontologo;
+    }
+
+    public void setTurno_odontologo(Odontologo turno_odontologo) {
+        this.turno_odontologo = turno_odontologo;
+    }
+
+    public Paciente getTurno_paciente() {
+        return turno_paciente;
+    }
+
+    public void setTurno_paciente(Paciente turno_paciente) {
+        this.turno_paciente = turno_paciente;
+    }
+        
 }

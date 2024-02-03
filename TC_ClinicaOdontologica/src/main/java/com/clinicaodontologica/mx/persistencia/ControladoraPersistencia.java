@@ -4,11 +4,13 @@
  */
 package com.clinicaodontologica.mx.persistencia;
 
+import com.clinicaodontologica.mx.logica.Horario;
 import com.clinicaodontologica.mx.logica.Odontologo;
 import com.clinicaodontologica.mx.logica.Paciente;
 import com.clinicaodontologica.mx.logica.Responsable;
 import com.clinicaodontologica.mx.logica.Rol;
 import com.clinicaodontologica.mx.logica.Secretario;
+import com.clinicaodontologica.mx.logica.Turno;
 import com.clinicaodontologica.mx.logica.Usuario;
 import com.clinicaodontologica.mx.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
@@ -179,4 +181,62 @@ public class ControladoraPersistencia {
     public List<Responsable> obtenerResponsables() {
         return responsableJPA.findResponsableEntities();
     }
+
+    public List<Horario> obtenerHorarios() {
+        return horarioJPA.findHorarioEntities();
+    }
+
+    public void crearHorario(Horario horarioNuevo) {
+        horarioJPA.create(horarioNuevo);
+    }
+
+    public void eliminarHorario(int idEliminar) {
+        try {
+            horarioJPA.destroy(idEliminar);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al eliminar horario", ex);
+        }
+    }
+
+    public Horario obtenerHorario(int id) {
+        return horarioJPA.findHorario(id);
+    }
+
+    public void editarHorario(Horario horarioOriginal) {
+        try {
+            horarioJPA.edit(horarioOriginal);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al editar horario", ex);
+        }
+    }
+
+    public void crearTurno(Turno nuevoTurno) {
+        turnoJPA.create(nuevoTurno);
+    }
+
+    public void editarTurno(Turno turnoOriginal) {
+        try {
+            turnoJPA.edit(turnoOriginal);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al editar turno", ex);
+        }
+    }
+
+    public Turno obtenerTurno(int id) {
+        return turnoJPA.findTurno(id);
+    }
+
+    public void eliminarTurno(int idEliminar) {
+        try {
+            turnoJPA.destroy(idEliminar);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al eliminar turno", ex);
+        }
+    }
+
+    public List<Turno> obtenerTurnos() {
+        return turnoJPA.findTurnoEntities();      
+    }
+    
+    
 }
