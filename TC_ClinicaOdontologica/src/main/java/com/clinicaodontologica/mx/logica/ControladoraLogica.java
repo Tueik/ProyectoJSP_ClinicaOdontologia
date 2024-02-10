@@ -81,9 +81,6 @@ public class ControladoraLogica {
         return rol;
     }
     
-    public List<Rol> obtenerRoles() {
-        return controlPersis.obtenerRoles();
-    }
 
     public void crearOdontologo(String dni, String nombre, String apellidos, String telefono, String direccion, String txtFecha_nac, String especialidad) {
         Odontologo nuevoOdontologo = new Odontologo();
@@ -337,6 +334,33 @@ public class ControladoraLogica {
         turnoOriginal.setTurno_paciente(obtenerPaciente(idPaciente));
         
         controlPersis.editarTurno(turnoOriginal);
+    }
+
+    public List<Rol> obtenerRoles() {
+        return controlPersis.obtenerRoles();
+    }
+
+    public void crearRol(String nombreRol, String descripcion) {
+        Rol nuevoRol = new Rol();
+        nuevoRol.setNombreRol(nombreRol);
+        nuevoRol.setDescripcion(descripcion);
+        
+        controlPersis.crearRol(nuevoRol);
+    }
+
+    public void eliminarRol(int idEliminar) {
+        controlPersis.eliminarRol(idEliminar);
+    }
+
+    public void editarRol(Rol rolOriginal, String nombreRol, String descripcion) {
+        rolOriginal.setNombreRol(nombreRol);
+        rolOriginal.setDescripcion(descripcion);
+        
+        controlPersis.editarRol(rolOriginal);
+    }
+
+    public Rol obtenerRol(int id) {
+        return controlPersis.obtenerRol(id);
     }
     
 }

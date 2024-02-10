@@ -157,6 +157,22 @@
                     </div>
                 </div>
             </li>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRoles"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-solid fa-user"></i>
+                    <span>Roles</span>
+                </a>
+                <div id="collapseRoles" class="collapse" aria-labelledby="headingRoles"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Acciones:</h6>
+                        <a class="collapse-item" href="SvRoles">Ver Roles</a>
+                        <a class="collapse-item" href="registrarRol.jsp">Registro de Roles</a>
+                    </div>
+                </div>
+            </li>
   
             <!-- Divider 2 -->
             <hr class="sidebar-divider">

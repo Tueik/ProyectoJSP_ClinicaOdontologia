@@ -34,11 +34,9 @@ public class ControladoraPersistencia {
 
     
 
-    //<editor-fold defaultstate="collapsed" desc="rolJPA">
     public List<Rol> obtenerRoles(){
         return rolJPA.findRolEntities();
     }
-    //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="usuarioJPA">
     public void crearUsuario(Usuario nuevoUsuario) {
@@ -236,6 +234,30 @@ public class ControladoraPersistencia {
 
     public List<Turno> obtenerTurnos() {
         return turnoJPA.findTurnoEntities();      
+    }
+
+    public void crearRol(Rol nuevoRol) {
+        rolJPA.create(nuevoRol);
+    }
+
+    public void eliminarRol(int idEliminar) {
+        try {
+            rolJPA.destroy(idEliminar);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al eliminar rol", ex);
+        }
+    }
+
+    public void editarRol(Rol rolOriginal) {
+        try {
+            rolJPA.edit(rolOriginal);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, "Error al editar rol", ex);
+        }
+    }
+
+    public Rol obtenerRol(int id) {
+        return rolJPA.findRol(id);
     }
     
     
