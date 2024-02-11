@@ -40,7 +40,7 @@ public class SvEditarHorarios extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("horarioEditar", horarioEditar);
         
-        response.sendRedirect("editarHorario.jsp");
+        response.sendRedirect("vistas/editar/horario.jsp");
         
     }
 

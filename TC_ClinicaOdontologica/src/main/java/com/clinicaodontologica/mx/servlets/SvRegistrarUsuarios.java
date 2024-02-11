@@ -38,14 +38,21 @@ public class SvRegistrarUsuarios extends HttpServlet {
         List<Rol> listaRoles = control.obtenerRoles();
         sesion.setAttribute("listaRoles", listaRoles);
         
-        response.sendRedirect("registrarUsuario.jsp"); 
+        response.sendRedirect("vistas/registrar/usuario.jsp"); 
     }
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+            String nombreUsuario = request.getParameter("nombreusuario");
+            String contrasena = request.getParameter("contrasena");
+            String rolSeleccionado = request.getParameter("rol");
+
+            control.crearUsuario(nombreUsuario, contrasena, rolSeleccionado);
+
+            response.sendRedirect("SvUsuarios");
     }
 
     

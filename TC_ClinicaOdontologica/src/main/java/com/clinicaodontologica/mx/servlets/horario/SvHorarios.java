@@ -7,7 +7,6 @@ package com.clinicaodontologica.mx.servlets.horario;
 import com.clinicaodontologica.mx.logica.ControladoraLogica;
 import com.clinicaodontologica.mx.logica.Horario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,7 +38,7 @@ public class SvHorarios extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaHorarios", listaHorarios);
         
-        response.sendRedirect("verHorarios.jsp");
+        response.sendRedirect("vistas/ver/horarios.jsp");
     }
 
     

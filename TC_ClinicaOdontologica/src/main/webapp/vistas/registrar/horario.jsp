@@ -8,18 +8,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
-        <%@ include file="components/header.jsp" %>
+        <%@ include file="../../components/header.jsp" %>
     </head>  
     <body>
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <%@ include file="components/sidebar.jsp" %>
+            <%@ include file="../../components/sidebar.jsp" %>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
 
                 <!-- Main Content -->
                 <div id="content">
-                    <%@ include file="components/topbar.jsp" %>
+                    <%@ include file="../../components/topbar.jsp" %>
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
                         <!-- Page Heading -->
@@ -31,7 +31,7 @@
                         <h2>Registrar Horario</h2>
                         <p>Este es el apartado para registrar un Horario de Trabajo en el sistema.</p>
 
-                        <form class="user" action="SvRegistrarHorarios" method="POST">
+                        <form class="user" action="../../SvRegistrarHorarios" method="POST">
                                 <div class="form-group col">
                                     <div class="col-sm-6 mb-3">
                                         <label>Inicio de Horario</label>
@@ -51,7 +51,7 @@
                     </div>
                     <!-- End of Page Content -->
 
-                    <%@include file="components/footer.jsp" %>
+                    <%@include file="../../components/footer.jsp" %>
                 </div>
                 <!-- End of Main Content -->
 
@@ -61,9 +61,9 @@
         </div>
         <!-- End of Page Wrapper -->
 
-        <%@include file="components/scrolltop.jsp" %>
-        <%@include file="components/logoutmodal.jsp" %>
-        <%@include file="components/scripts.jsp" %>
+        <%@include file="../../components/scrolltop.jsp" %>
+        <%@include file="../../components/logoutmodal.jsp" %>
+        <%@include file="../../components/scripts.jsp" %>
 
     </body>
 </html>

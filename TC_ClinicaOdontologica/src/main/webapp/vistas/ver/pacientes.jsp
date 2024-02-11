@@ -12,22 +12,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%@ include file="components/header.jsp" %>
-        <!-- Custom styles for this page -->
-        <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <%@ include file="../../components/header.jsp" %>
+        <%@ include file="../../components/styles_dataTables.jsp" %>
     </head>
     <body id="page-top">
 
-        <%--<%@include file="components/acceso.jsp" %>--%>
+        <%--<%@include file="../../components/acceso.jsp" %>--%>
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <%@ include file="components/sidebar.jsp" %>
+            <%@ include file="../../components/sidebar.jsp" %>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
 
                 <!-- Main Content -->
                 <div id="content">
-                    <%@ include file="components/topbar.jsp" %>
+                    <%@ include file="../../components/topbar.jsp" %>
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
                         <!-- Page Heading -->
@@ -36,8 +35,9 @@
                         
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Pacientes:</h6>
+                            <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                                <h6 class="m-0 font-weight-bold text-primary ">Pacientes:</h6>
+                                <a class="btn btn-success" href="../../SvRegistrarPacientes">Nuevo Paciente</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -53,7 +53,7 @@
                                                 <th>Fecha Nacimiento</th> 
                                                 <th>Seguro Social</th>            
                                                 <th>Sangre Tipo</th>
-                                                <th style="width: 210px">Acción</th>
+                                                <th class="crudcolbtn">Acción</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -67,7 +67,7 @@
                                                 <th>Fecha Nacimiento</th> 
                                                 <th>Seguro Social</th>     
                                                 <th>Sangre Tipo</th> 
-                                                <th style="width: 210px">Acción</th>
+                                                <th class="crudcolbtn">Acción</th>
                                             </tr>
                                         </tfoot>
                                         <% 
@@ -78,7 +78,7 @@
                                         <tbody>
                                             <% for(Paciente p : listaPacientes) { %>
                                             <tr>                                               
-                                                <td id="id_usr<%= p.getId() %>"><%= p.getId() %></td>
+                                                <td id="id_p<%= p.getId() %>"><%= p.getId() %></td>
                                                 <td><%= p.getDni() %></td>
                                                 <td><%= p.getNombre() %></td>
                                                 <td><%= p.getApellido() %></td>
@@ -92,15 +92,15 @@
                                             <% } %>
                                                 <td><%= p.getTipoSangre() %></td>
                                                 
-                                                <td style="display: flex; width: 230px;">
-                                                    <form action="SvEliminarPacientes" name="eliminar" method="POST"><!-- Se manda el código al servlet -->
-                                                        <button type="submit" class="btn btn-primary btn-user btn-block" style="background-color: red; margin-right: 5px;">
+                                                <td class="d-flex justify-content-around">
+                                                    <form action="../../SvEliminarPacientes" name="eliminar" method="POST"><!-- Se manda el código al servlet -->
+                                                        <button type="submit" class="btn btn-danger btn-user btn-block">
                                                             <i class="fas fa-trash-alt"></i> Eliminar
                                                         </button>
                                                         <input type="hidden" name="id" value="<%= p.getId() %>">
                                                     </form>
-                                                    <form action="SvEditarPacientes" name="editar" method="GET"><!-- Se manda el código al servlet -->
-                                                        <button type="submit" class="btn btn-primary btn-user btn-block" style="margin-left: 5px;">
+                                                    <form action="../../SvEditarPacientes" name="editar" method="GET"><!-- Se manda el código al servlet -->
+                                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                                             <i class="fas fa-pencil-alt"></i> Editar
                                                         </button>
                                                         <input type="hidden" name="id" value="<%= p.getId() %>">
@@ -117,7 +117,7 @@
                     </div>
                     
 
-                    <%@include file="components/footer.jsp" %>
+                    <%@include file="../../components/footer.jsp" %>
                 </div>
                 
                     
@@ -126,10 +126,10 @@
 
         </div>
 
-        <%@include file="components/scrolltop.jsp" %>
-        <%@include file="components/logoutmodal.jsp" %>
-        <%@include file="components/scripts.jsp" %>
-        <%@include file="components/scripts_dataTables.jsp" %>
+        <%@include file="../../components/scrolltop.jsp" %>
+        <%@include file="../../components/logoutmodal.jsp" %>
+        <%@include file="../../components/scripts.jsp" %>
+        <%@include file="../../components/scripts_dataTables.jsp" %>
     </body>
 
 </html>

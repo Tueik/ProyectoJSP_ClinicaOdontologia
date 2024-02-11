@@ -43,7 +43,7 @@ public class SvEditarPacientes extends HttpServlet {
         sesion.setAttribute("pacienteEditar", pacienteEditar);
         sesion.setAttribute("tiposSangre", tiposSangre);
         
-        response.sendRedirect("editarPaciente.jsp");
+        response.sendRedirect("vistas/editar/paciente.jsp");
         
     }
 

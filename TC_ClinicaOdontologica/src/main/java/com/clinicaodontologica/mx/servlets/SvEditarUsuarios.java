@@ -44,7 +44,7 @@ public class SvEditarUsuarios extends HttpServlet {
         sesion.setAttribute("listaRoles", listaRoles);
         
         
-        response.sendRedirect("editarUsuario.jsp");
+        response.sendRedirect("vistas/editar/usuario.jsp");
         
     }
 

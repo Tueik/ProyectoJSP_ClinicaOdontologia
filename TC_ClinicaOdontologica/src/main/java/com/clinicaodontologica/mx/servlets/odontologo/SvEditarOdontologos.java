@@ -39,7 +39,7 @@ public class SvEditarOdontologos extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("odontologoEditar", odEditar);
         
-        response.sendRedirect("editarOdontologo.jsp");
+        response.sendRedirect("vistas/editar/odontologo.jsp");
     }
 
     

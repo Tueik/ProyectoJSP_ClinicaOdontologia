@@ -40,7 +40,7 @@ public class SvEditarRoles extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("rolEditar", rolEditar);
         
-        response.sendRedirect("editarRol.jsp");
+        response.sendRedirect("vistas/editar/rol.jsp");
         
         
     }

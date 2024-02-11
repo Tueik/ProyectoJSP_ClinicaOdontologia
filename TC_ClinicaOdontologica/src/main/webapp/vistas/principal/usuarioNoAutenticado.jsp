@@ -1,6 +1,6 @@
 <%-- 
-    Document   : loginError
-    Created on : 13 ene. 2024, 1:45:41 a. m.
+    Document   : usuarioNoAutenticado
+    Created on : 13 ene. 2024, 2:14:36 a. m.
     Author     : ricar
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -8,11 +8,11 @@
 <html>
     <head>
 
-        <%@include file="components/header.jsp" %>
+        <%@include file="../../components/header.jsp" %>
 
     </head>
 
-    <body class="bg-gradient-primary">   
+    <body class="bg-gradient-primary">
         <div class="container">
 
             <!-- Outer Row -->
@@ -30,11 +30,12 @@
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Inicio de Sesión</h1> 
                                         </div>
-                                        <h5>Error al iniciar sesión:</h5>
-                                        <p>Nombre de usuario o contraseña son incorrectos</p>
+                                       
+                                        <p>Necesitas haber iniciado sesion para acceder a este sitio</p>
+                                        
                                         <a href="login.jsp" class="btn btn-primary btn-user btn-block">
-                                                Regresar a Inicio de Sesión
-                                        </a>
+                                                Ir a Inicio de Sesión
+                                        <a>
                                         <hr>                                                                                                               
                                     </div>
                                 </div>
@@ -48,7 +49,8 @@
 
         </div>
 
-        <%@include file="components/scripts.jsp" %>
+        <%@include file="../../components/scripts.jsp" %>
 
     </body>
 </html>
+

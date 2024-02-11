@@ -38,7 +38,7 @@ public class SvEditarSecretarios extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("secretarioEditar", secEditar);
         
-        response.sendRedirect("editarSecretario.jsp");
+        response.sendRedirect("vistas/editar/secretario.jsp");
         
     }
 

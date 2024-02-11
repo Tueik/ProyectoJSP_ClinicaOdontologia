@@ -38,7 +38,7 @@ public class SvSecretarios extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaSecretarios", listaSecretarios);
         
-        response.sendRedirect("verSecretarios.jsp");
+        response.sendRedirect("vistas/ver/secretarios.jsp");
     }
 
     

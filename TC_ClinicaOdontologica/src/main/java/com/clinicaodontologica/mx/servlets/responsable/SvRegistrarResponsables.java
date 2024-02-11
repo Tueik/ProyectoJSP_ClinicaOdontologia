@@ -30,7 +30,7 @@ public class SvRegistrarResponsables extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        response.sendRedirect("vistas/registrar/responsable.jsp");
     }
 
     

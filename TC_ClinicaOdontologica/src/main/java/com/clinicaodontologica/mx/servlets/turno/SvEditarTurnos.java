@@ -47,7 +47,7 @@ public class SvEditarTurnos extends HttpServlet {
         sesion.setAttribute("listaOdontologos", listaOdontologos);
         sesion.setAttribute("listaPacientes", listaPacientes);
         
-        response.sendRedirect("editarTurno.jsp");
+        response.sendRedirect("vistas/editar/turno.jsp");
         
     }
 

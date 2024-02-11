@@ -7,7 +7,6 @@ package com.clinicaodontologica.mx.servlets.turno;
 import com.clinicaodontologica.mx.logica.ControladoraLogica;
 import com.clinicaodontologica.mx.logica.Turno;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,7 +39,7 @@ public class SvTurnos extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaTurnos", listaTurnos);
         
-        response.sendRedirect("verTurnos.jsp");
+        response.sendRedirect("vistas/ver/turnos.jsp");
     }
 
     

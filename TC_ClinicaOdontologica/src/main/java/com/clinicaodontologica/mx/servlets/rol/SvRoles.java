@@ -38,7 +38,7 @@ public class SvRoles extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaRoles", listaRoles);
         
-        response.sendRedirect("verRoles.jsp");
+        response.sendRedirect("vistas/ver/roles.jsp");
     }
 
     

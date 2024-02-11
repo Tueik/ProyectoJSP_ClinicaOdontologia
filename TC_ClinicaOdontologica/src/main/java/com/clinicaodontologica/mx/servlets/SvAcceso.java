@@ -43,9 +43,9 @@ public class SvAcceso extends HttpServlet {
         if(validacion){
             HttpSession sesion = request.getSession(true);
             sesion.setAttribute("usuario", usuario);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("vistas/principal/index.jsp");
         } else {
-            response.sendRedirect("loginError.jsp");
+            response.sendRedirect("vistas/principal/loginError.jsp");
         }
     }
 

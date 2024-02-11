@@ -7,8 +7,6 @@ package com.clinicaodontologica.mx.servlets.odontologo;
 import com.clinicaodontologica.mx.logica.ControladoraLogica;
 import com.clinicaodontologica.mx.logica.Odontologo;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,7 +39,7 @@ public class SvOdontologos extends HttpServlet {
         
         sesion.setAttribute("listaOdontologos", listaOdontologos);
         
-        response.sendRedirect("verOdontologos.jsp");
+        response.sendRedirect("vistas/ver/odontologos.jsp");
         
     }
 

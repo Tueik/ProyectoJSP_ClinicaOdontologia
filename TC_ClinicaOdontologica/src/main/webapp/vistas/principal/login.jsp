@@ -9,7 +9,7 @@
 <html>
     <head>
 
-        <%@include file="components/header.jsp" %>
+        <%@include file="../../components/header.jsp" %>
 
     </head>
 
@@ -31,7 +31,7 @@
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Inicio de Sesión</h1> 
                                         </div>
-                                        <form class="user" action="SvAcceso" method="POST">
+                                        <form class="user" action="../../SvAcceso" method="POST">
                                             <div class="form-group">
                                                 <input class="form-control form-control-user" 
                                                        placeholder="Usuario" id="usuario" name="usuario">
@@ -58,7 +58,7 @@
 
         </div>
 
-        <%@include file="components/scripts.jsp" %>
+        <%@include file="../../components/scripts.jsp" %>
 
     </body>
 </html>

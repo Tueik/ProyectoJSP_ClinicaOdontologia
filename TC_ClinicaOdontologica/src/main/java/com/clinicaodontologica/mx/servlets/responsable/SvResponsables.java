@@ -38,7 +38,7 @@ public class SvResponsables extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaResponsables", listaResponsables);
         
-        response.sendRedirect("verResponsables.jsp");
+        response.sendRedirect("vistas/ver/responsables.jsp");
     }
 
     

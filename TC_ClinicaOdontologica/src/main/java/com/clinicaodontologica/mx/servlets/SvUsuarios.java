@@ -7,7 +7,6 @@ package com.clinicaodontologica.mx.servlets;
 import com.clinicaodontologica.mx.logica.ControladoraLogica;
 import com.clinicaodontologica.mx.logica.Usuario;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,13 +34,12 @@ public class SvUsuarios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-        listaUsuarios = control.obtenerUsuarios();
+        List<Usuario> listaUsuarios = control.obtenerUsuarios();
         
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaUsuarios", listaUsuarios);
         
-        response.sendRedirect("verUsuarios.jsp");
+        response.sendRedirect("vistas/ver/usuarios.jsp");
         
     }
 
@@ -50,14 +48,7 @@ public class SvUsuarios extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String nombreUsuario = request.getParameter("nombreusuario");
-        String contrasena = request.getParameter("contrasena");
-        String rolSeleccionado = request.getParameter("rol");
-        
-        control.crearUsuario(nombreUsuario, contrasena, rolSeleccionado);
-        
-        response.sendRedirect("SvUsuarios");
-        
+    
     }
 
     

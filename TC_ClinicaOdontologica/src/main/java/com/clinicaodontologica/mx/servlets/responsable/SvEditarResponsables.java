@@ -40,7 +40,7 @@ public class SvEditarResponsables extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("respEditar", respEditar);
         
-        response.sendRedirect("editarResponsable.jsp");
+        response.sendRedirect("vistas/editar/responsable.jsp");
              
     }
 

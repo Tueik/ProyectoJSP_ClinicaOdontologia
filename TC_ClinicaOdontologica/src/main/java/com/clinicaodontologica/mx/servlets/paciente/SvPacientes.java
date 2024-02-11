@@ -38,7 +38,7 @@ public class SvPacientes extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaPacientes", listaPacientes);
         
-        response.sendRedirect("verPacientes.jsp");
+        response.sendRedirect("vistas/ver/pacientes.jsp");
         
     }
 

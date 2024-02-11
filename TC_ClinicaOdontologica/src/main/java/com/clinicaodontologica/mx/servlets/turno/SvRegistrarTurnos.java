@@ -43,7 +43,7 @@ public class SvRegistrarTurnos extends HttpServlet {
         sesion.setAttribute("listaOdontologos", listaOdontologos);
         sesion.setAttribute("listaPacientes", listaPacientes);
         
-        response.sendRedirect("registrarTurno.jsp");
+        response.sendRedirect("vistas/registrar/turno.jsp");
     }
 
     @Override
